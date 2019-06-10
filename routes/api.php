@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +17,26 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('places', 'PlaceController');
+
+Route::put('places/{id}', 'PlaceController@update');
+
+Route::apiResource('packages', 'PackageController');
+
+Route::get('package/{id}', 'PackageController@abc');
+
+
+Route::apiResource('books', 'BookController');
+
+
+Route::apiResource('images', 'ImageController');
+
+
+Route::post('sendmail', 'sendEmailController@send');
+
+
+
+Route::get('topPlaces', 'PlaceController@topPlaces');
+
+Route::get('topPackages', 'PackageController@topPackages');
